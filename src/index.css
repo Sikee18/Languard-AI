@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 220 25% 7%;
+    --foreground: 210 20% 90%;
+
+    --card: 220 22% 10%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 22% 10%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 175 80% 45%;
+    --primary-foreground: 220 25% 7%;
+
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 18% 14%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 175 60% 30%;
+    --accent-foreground: 175 80% 85%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 142 80% 95%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 92% 10%;
+
+    --risk-low: 142 70% 45%;
+    --risk-medium: 38 92% 50%;
+    --risk-high: 0 72% 51%;
+
+    --border: 220 16% 18%;
+    --input: 220 16% 18%;
+    --ring: 175 80% 45%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 22% 10%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 175 80% 45%;
+    --sidebar-primary-foreground: 220 25% 7%;
+    --sidebar-accent: 220 18% 14%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 16% 18%;
+    --sidebar-ring: 175 80% 45%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 175 80% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 175 60% 90%;
+    --accent-foreground: 175 80% 25%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 35%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --risk-low: 142 70% 35%;
+    --risk-medium: 38 92% 50%;
+    --risk-high: 0 72% 51%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 175 80% 35%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 175 80% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 175 80% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(175 80% 45% / 0.15), 0 0 60px hsl(175 80% 45% / 0.05);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px hsl(142 70% 45% / 0.2);
+  }
+
+  .glow-destructive {
+    box-shadow: 0 0 20px hsl(0 72% 51% / 0.2);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(220 16% 18% / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(220 16% 18% / 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .status-approved {
+    @apply bg-success/10 text-success border-success/30;
+  }
+
+  .status-rejected {
+    @apply bg-destructive/10 text-destructive border-destructive/30;
+  }
+
+  .status-pending {
+    @apply bg-warning/10 text-warning border-warning/30;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 8px hsl(142 70% 45% / 0.6);
+    }
+
+    50% {
+      opacity: 0.7;
+      box-shadow: 0 0 12px hsl(142 70% 45% / 0.8);
+    }
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .animate-count-up {
+    animation: count-up 1s ease-out;
+  }
+
+  @keyframes count-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
