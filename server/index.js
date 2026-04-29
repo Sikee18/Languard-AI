@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
 // Database Connection
 const PORT = process.env.PORT || 5000;
-let MONGODB_URI = process.env.MONGODB_URI;
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://rathu1829_db_user:JnaorRyg5mrLmO6E@cluster0.nkwnusf.mongodb.net/languard";
 
 const startServer = async () => {
   try {
