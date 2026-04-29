@@ -21,7 +21,10 @@ app.use('/api/satellite', satelliteRoutes);
 
 // Basic Route
 app.get('/', (req, res) => {
-  res.send('LandGuard AI Backend is Running 🚀');
+  const dbType = MONGODB_URI && MONGODB_URI.includes('mongodb-memory-server') 
+    ? 'TEMPORARY IN-MEMORY DATABASE (Data will be lost)' 
+    : 'MONGODB ATLAS CLOUD (Data is saved permanently)';
+  res.send(`LandGuard AI Backend is Running 🚀<br><br>Current Database Connection: <b>${dbType}</b>`);
 });
 
 // Database Connection
